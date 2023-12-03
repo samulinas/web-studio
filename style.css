@@ -1,0 +1,848 @@
+@charset "utf-8";
+@font-face {
+  font-family: "ProximaNova";
+  src: url(fonts/ProximaNova/ProximaNova-Regular.woff) format("woff"),
+    url(fonts/ProximaNova/ProximaNova-Regular.eot) format("eot");
+  font-display: block;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "ProximaNova";
+  src: url(fonts/ProximaNova/ProximaNova-Bold.woff) format("woff"),
+    url(fonts/ProximaNova/ProximaNova-Bold.eot) format("eot");
+  font-display: block;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "ProximaNova";
+  src: url(fonts/ProximaNova/ProximaNova-Extrabld.woff) format("woff"),
+    url(fonts/ProximaNova/ProximaNova-Extrabld.eot) format("eot");
+  font-display: block;
+  font-weight: 800;
+}
+@font-face {
+  font-family: "ProximaNova";
+  src: url(fonts/ProximaNova/ProximaNova-Black.woff) format("woff"),
+    url(fonts/ProximaNova/ProximaNova-Black.eot) format("eot");
+  font-display: block;
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url(fonts/Montserrat/Montserrat-Black.woff) format("woff"),
+    url(fonts/Montserrat/Montserrat-Black.eot) format("eot");
+  font-display: block;
+  font-weight: 900;
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+/* ============================ Первый экран - Главная ============================ */
+.first-screen {
+  min-height: 658px;
+  max-height: 1080px;
+  height: 100vh;
+  min-width: 1200px;
+  background: url("images/noise.png") #1b1b28;
+  background-blend-mode: multiply;
+  margin: 0 auto;
+}
+.first-screen__bg {
+  min-height: 658px;
+  max-height: 1080px;
+  height: 100vh;
+  min-width: 1200px;
+  background: url("images/ellipse-top.svg") center top / auto no-repeat,
+    url("images/ellipse-bottom.svg") center bottom / auto no-repeat;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.first-screen__center {
+  width: 1200px;
+  height: calc(100% - 150px);
+  margin: 0 auto;
+}
+header {
+  width: inherit;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  padding: 0 25px;
+  pointer-events: none;
+  user-select: none;
+}
+nav {
+  width: 830px;
+  height: 150px;
+  background: #474780;
+}
+nav ul {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 68px;
+}
+nav ul li a {
+  font: 800 15px / 1 "ProximaNova";
+  color: white;
+  text-transform: uppercase;
+  padding: 30px 0;
+  user-select: none;
+}
+nav ul li a:hover {
+  color: #e0e3f4;
+}
+nav ul li:nth-child(-n + 4) {
+  margin-right: 50px;
+}
+nav ul li:not(:nth-child(-n + 4)) {
+  margin-right: 20px;
+}
+nav ul li:last-child {
+  margin-right: 0;
+}
+.slider {
+  height: 100%;
+  width: inherit;
+  position: relative;
+  padding: 0 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.slider > div:first-child {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+.slider__number {
+  font: 800 36pt / 1 "ProximaNova";
+  color: #ffb300;
+  margin-left: 60px;
+  margin-right: 10px;
+}
+.slider__number-small {
+  font: 400 14pt / 1 "ProximaNova";
+  color: white;
+}
+.slider__text {
+  width: 650px;
+  font: 900 44pt / 1.25 "Montserrat";
+  color: white;
+  text-transform: uppercase;
+  margin: 50px 60px;
+}
+mark {
+  color: #ffb300;
+  background: none;
+}
+.slider__text-small {
+  color: white;
+  margin-left: 400px;
+  width: 150px;
+  font: 400 14pt / 1.25 "ProximaNova";
+}
+.slider__text-small::before {
+  content: "—";
+  transform: scaleX(5);
+  transform-origin: left;
+  position: absolute;
+  left: 330px;
+  margin-top: 12px;
+}
+.slider__images {
+  position: absolute;
+  top: 0;
+  right: -260px;
+  z-index: 1;
+  object-fit: cover;
+  height: 100%;
+}
+.slider__button-details {
+  border: none;
+  background: #ffb300;
+  font: 800 14px / 87px "ProximaNova";
+  width: 340px;
+  height: 87px;
+  text-transform: uppercase;
+  color: #1b1b28;
+  cursor: pointer;
+}
+.slider__button-details:hover {
+  background: #ffbf28;
+}
+.slider__button-arrow {
+  border: none;
+  background: #1b1b28;
+  font: 800 14px / 87px "ProximaNova";
+  width: 87px;
+  height: 87px;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
+.slider__button-arrow:hover {
+  background: #252537;
+}
+@media screen and (max-height: 768px) {
+  .slider__number {
+    font: 800 30pt / 1 "ProximaNova";
+  }
+  .slider__number-small {
+    font: 400 12pt / 1 "ProximaNova";
+  }
+  .slider__text {
+    width: 600px;
+    margin: 30px 60px;
+    font: 900 36pt / 1.25 "Montserrat";
+  }
+  .slider__text-small {
+    margin-left: 390px;
+    width: 130px;
+    font: 400 12pt / 1.25 "ProximaNova";
+  }
+  .slider__images {
+    right: 0;
+  }
+}
+/* ============================ Второй экран - Портфолио ============================ */
+.second-screen {
+  height: calc(100vh - 45px);
+  min-height: 658px;
+  max-height: 1080px;
+  min-width: 1200px;
+  background: url("images/square-top.png") center top / auto no-repeat,
+    #f1f2fb url("images/square-bottom.png") center bottom / auto no-repeat;
+  background-blend-mode: color-dodge;
+}
+.second-screen__center {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.portfolio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+  flex-basis: 240px;
+}
+.portfolio__title {
+  font: 900 44pt / 1 "Montserrat";
+  color: #c5c9e3;
+  text-transform: uppercase;
+}
+.portfolio__desc {
+  color: #c5c9e3;
+  width: 180px;
+  text-align: right;
+  font: 400 14pt / 1.25 "ProximaNova";
+  padding-right: 100px;
+}
+.portfolio__desc::after {
+  content: "—";
+  transform: scaleX(5);
+  transform-origin: right;
+  position: absolute;
+  right: 60px;
+  margin-top: -12px;
+}
+.portfolio__tabs {
+  display: flex;
+  flex-direction: column;
+}
+.portfolio__tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.portfolio__tabs-list li:not(:last-child) {
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+.portfolio__tabs-list li:last-child {
+  position: absolute;
+  right: 30px;
+}
+.portfolio__tabs-list li {
+  font: 400 12pt / 1 "ProximaNova";
+  padding: 14px 36px;
+  background: #e0e3f4;
+  border-radius: 30px;
+  display: inline-block;
+  color: #141486;
+  cursor: pointer;
+}
+.portfolio__tabs-list li.active {
+  font-weight: 800;
+  color: #f1f3fb;
+  background: #515187;
+}
+.portfolio__tabs-list li:not(.active):hover {
+  background: #d7dbf1;
+}
+.portfolio__tabs-panel {
+  display: none;
+}
+.portfolio__tabs-panel div {
+  display: flex;
+  flex-wrap: wrap;
+  height: 592px;
+}
+.portfolio__tabs-panel div div {
+  width: 366px;
+  height: 286px;
+  background: #c5c9e3;
+  margin-right: 20px;
+  overflow: hidden;
+}
+.portfolio__tabs-panel div div:nth-child(3n + 3) {
+  margin-right: 0;
+}
+.portfolio__tabs-panel div div:nth-child(odd) {
+  margin-bottom: 20px;
+}
+.screen__button-block {
+  text-align: center;
+  margin-bottom: -45px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 2;
+}
+.screen__button {
+  border: none;
+  background: #ffb300;
+  font: 800 14px / 87px "ProximaNova";
+  width: 340px;
+  height: 87px;
+  text-transform: uppercase;
+  color: #1b1b28;
+  cursor: pointer;
+}
+.screen__button:hover {
+  background: #ffbf28;
+}
+@media screen and (max-height: 912px) {
+  .portfolio {
+    margin: 40px 30px 0;
+  }
+  .portfolio__tabs-panel {
+    height: 286px;
+    width: inherit;
+    overflow: hidden;
+  }
+  .portfolio__tabs-panel div div:nth-child(odd) {
+    margin-bottom: 0px;
+  }
+  .second-screen__button-block {
+    margin-top: 60px;
+  }
+}
+/* ============================ Третий экран - Услуги ============================ */
+.third-screen {
+  height: calc(100vh + 50px);
+  min-height: 658px;
+  max-height: 1080px;
+  min-width: 1200px;
+  background: url("images/square-top.png") center top / auto no-repeat,
+    #2b2b3f url("images/square-bottom.png") center bottom / auto no-repeat;
+  background-blend-mode: overlay;
+  position: relative;
+  z-index: 1;
+}
+.third-screen__center {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 30px 45px;
+  box-sizing: border-box;
+  position: relative;
+  top: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.services {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+  flex-basis: 250px;
+}
+.services__title {
+  font: 900 44pt / 1 "Montserrat";
+  color: #4e4a80;
+  text-transform: uppercase;
+}
+.services__desc {
+  color: #b5b9d2;
+  width: 180px;
+  text-align: right;
+  font: 400 14pt / 1.25 "ProximaNova";
+  padding-right: 100px;
+}
+.services__desc::after {
+  content: "—";
+  transform: scaleX(5);
+  transform-origin: right;
+  position: absolute;
+  right: 60px;
+  margin-top: -12px;
+}
+.services-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 600px;
+  margin-bottom: 60px;
+}
+.services-list > div {
+  display: inline-block;
+  width: 360px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.services-list__title {
+  width: 100%;
+  height: 134px;
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+}
+.services-list__title > img {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.services-list__title > span {
+  font: 900 21pt / 1.3 "Montserrat";
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+.services-list__item {
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+}
+.services-list__item > ul > li {
+  color: white;
+  font: 400 14pt / 1 "ProximaNova";
+  margin-left: 50px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  transition: 0.1s all;
+}
+.services-list__item > ul > li:before {
+  content: url("images/arrow-right.svg");
+  margin-right: 18px;
+}
+.services-list__item > ul > li:hover {
+  color: #b5b9d2;
+  cursor: pointer;
+  margin-left: 70px;
+  transition: 0.1s all;
+}
+.services-list > div:nth-child(2) > div:nth-child(2) > ul > li {
+  margin-left: 120px;
+}
+.services-list > div:nth-child(2) > div:nth-child(2) > ul > li:hover {
+  margin-left: 140px;
+}
+.services-list__item > ul > li:last-child {
+  margin-bottom: 0;
+}
+/* ============================ Четвертый экран - Новости ============================ */
+.fourth-screen {
+  height: calc(100vh - 45px);
+  min-height: 658px;
+  max-height: 1080px;
+  min-width: 1200px;
+  background: url("images/square-top.png") center top / auto no-repeat,
+    #f1f2fb url("images/square-bottom.png") center bottom / auto no-repeat;
+  background-blend-mode: color-dodge;
+}
+.fourth-screen__center {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.news {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 30px 0;
+  flex-basis: 18%;
+}
+.news__title {
+  font: 900 44pt / 1 "Montserrat";
+  color: #c5c9e3;
+  text-transform: uppercase;
+}
+.news__desc {
+  color: #c5c9e3;
+  width: 300px;
+  text-align: right;
+  font: 400 14pt / 1.25 "ProximaNova";
+  padding-right: 100px;
+}
+.news__desc::after {
+  content: "—";
+  transform: scaleX(5);
+  transform-origin: right;
+  position: absolute;
+  right: 60px;
+  margin-top: -12px;
+}
+.news-block {
+  flex-basis: 550px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.news-block__lg {
+  width: 472px;
+  height: 100%;
+}
+.news-block__image-lg {
+  width: 472px;
+  height: 266px;
+  overflow: hidden;
+  background: #c5c9e3;
+}
+.news-block__image-lg > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.news-block__category-lg {
+  margin: 25px 25px 20px 0;
+  background: #515187;
+  display: inline-block;
+  color: white;
+  font: 700 10pt / 1 "ProximaNova";
+  text-transform: uppercase;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+.news-block__time {
+  color: #a0a5ce;
+  font: 700 10pt / 1 "ProximaNova";
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+.news-block__header-lg {
+  color: #1b1b28;
+  font: 900 16pt / 1.2 "ProximaNova";
+  margin-bottom: 20px;
+}
+.news-block__article {
+  color: #1b1b28;
+  font: 400 12pt / 1.2 "ProximaNova";
+  margin-bottom: 20px;
+}
+.news-block__more {
+  color: #a0a5ce;
+  font: 700 10pt / 1 "ProximaNova";
+  padding-bottom: 8px;
+  border-bottom: 1px solid #a0a5ce;
+  text-transform: uppercase;
+  transition: 0.1s all;
+  cursor: pointer;
+}
+.news-block__more:hover {
+  color: #c5c9e3;
+  border-bottom: 1px solid #c5c9e3;
+  transition: 0.1s all;
+}
+.news-block__sm {
+  width: 608px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.news-block__sm > div {
+  width: 100%;
+  height: 150px;
+  display: flex;
+}
+.news-block__sm > div > div:first-child {
+  width: 267px;
+  height: 100%;
+  margin-right: 25px;
+  background: #c5c9e3;
+}
+.news-block__sm > div > div:first-child > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.news-block__sm > div > div:last-child {
+  width: calc(100% - 267px - 25px);
+}
+.news-block__category-sm {
+  margin-right: 25px;
+  background: #515187;
+  display: inline-block;
+  color: white;
+  font: 700 10pt / 1 "ProximaNova";
+  text-transform: uppercase;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+.news-block__header-sm {
+  color: #1b1b28;
+  font: 900 16pt / 1.2 "ProximaNova";
+  margin: 14px 0;
+}
+@media screen and (max-height: 800px) {
+  .news {
+    margin-top: 40px;
+    flex-basis: 30%;
+  }
+  .news-block__image-lg {
+    width: 426px;
+    height: 240px;
+    overflow: hidden;
+    background: #c5c9e3;
+  }
+  .news-block__article {
+    display: none;
+  }
+  .news-block__sm > div > div:first-child {
+    width: 300px;
+    height: 169px;
+  }
+  .news-block__sm > div > div:last-child {
+    width: calc(100% - 325px);
+  }
+  .news-block__sm {
+    width: 655px;
+    justify-content: flex-start;
+  }
+  .news-block__sm > div {
+    height: 169px;
+  }
+  .news-block__sm > div:first-child {
+    margin-bottom: 60px;
+  }
+  .news-block__sm > div:last-child {
+    display: none;
+  }
+  .news-block__header-sm {
+    margin: 20px 0;
+  }
+}
+/* ============================ Пятый экран - Контакты ============================ */
+.fifth-screen {
+  min-height: calc(658px + 45px);
+  max-height: 1080px;
+  height: calc(100vh + 45px);
+  min-width: 1200px;
+  background: url("images/noise.png") #1b1b28;
+  background-blend-mode: multiply;
+  margin: 0 auto;
+}
+.fifth-screen__bg {
+  min-height: calc(658px + 45px);
+  max-height: 1080px;
+  height: calc(100vh + 45px);
+  min-width: 1200px;
+  background: url("images/contacts-bg.svg") center bottom / auto no-repeat;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.fifth-screen__center {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 30px 45px;
+  box-sizing: border-box;
+  position: relative;
+  top: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 30px 0;
+  flex-basis: 20%;
+}
+.contacts__title {
+  font: 900 44pt / 1 "Montserrat";
+  color: #6464a4;
+  text-transform: uppercase;
+  display: block;
+}
+.contacts-block {
+  width: 100%;
+  display: flex;
+  flex-basis: 80%;
+  min-height: 560px;
+}
+.contacts-block > div:first-child {
+  width: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contacts-block > div:first-child > div {
+  width: 680px;
+  min-height: 490px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.contacts-block > div:first-child > div > p {
+  font: 900 42pt / 1.25 "Montserrat";
+  text-transform: uppercase;
+  color: white;
+  margin-left: 60px;
+}
+.contacts__social {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.contacts__social > p {
+  color: white;
+  font: 400 14pt / 1.25 "ProximaNova";
+  display: block;
+}
+.contacts__social > p::before {
+  content: "—";
+  transform: scaleX(5);
+  transform-origin: left;
+  display: inline-block;
+  margin-right: 90px;
+}
+.contacts__link > a {
+  width: 90px;
+  height: 90px;
+  background: #474780;
+  border-radius: 45px;
+  margin-right: 30px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.05s all;
+}
+.contacts__link > a:hover {
+  background: #565690;
+  transition: 0.05s all;
+}
+.contacts-block > div:last-child {
+  width: 460px;
+  height: 100%;
+  max-height: 620px;
+  background: #474780;
+  margin-top: 20px;
+  padding: 50px 40px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+.contacts-block > div:last-child > p:first-of-type {
+  color: #e0e3f4;
+  font: 800 18pt / 1 "ProximaNova";
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.contacts-block > div:last-child > p:last-of-type {
+  color: #7173aa;
+  font: 400 12pt / 1 "ProximaNova";
+  text-align: center;
+  margin-bottom: 10px;
+}
+.contacts__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.contacts__form > input:not([type="submit"]) {
+  border: 1px solid #35356c;
+  background: #3e3e77;
+  margin-top: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  font: 400 12pt / 1 "ProximaNova";
+  color: white;
+}
+.contacts__form > textarea {
+  border: 1px solid #35356c;
+  background: #3e3e77;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 100%;
+  min-height: 100px;
+  height: 100%;
+  resize: none;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  font: 400 12pt / 1 "ProximaNova";
+}
+.contacts__form > input:not([type="submit"])::placeholder,
+.contacts__form > textarea::placeholder {
+  color: #9ea0d0;
+}
+.contacts__form > input:focus::placeholder,
+.contacts__form > textarea:focus::placeholder {
+  transition: color 0.15s ease;
+  color: transparent;
+}
+footer {
+  height: 72px;
+  font: 400 10pt / 72px "ProximaNova";
+  color: white;
+}
+@media screen and (max-height: 915px) {
+  .contacts-block > div:last-child {
+    margin-top: 0;
+  }
+}
+@media screen and (max-height: 800px) {
+  .contacts-block > div:first-child > div > p {
+    font: 900 38pt / 1.25 "Montserrat";
+    margin-top: 20px;
+  }
+}
