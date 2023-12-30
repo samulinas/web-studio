@@ -1,7 +1,7 @@
-<meta http-equiv='refresh' content='1; url=https://juicy-studio.ru'>
+<meta http-equiv='refresh' content='1; url=https://samulinas.github.io/web-studio/'>
 <meta charset="UTF-8" />
 <?php
-$to = "juicy.st@yandex.ua"; // емайл получателя данных из формы
+$to = "samulinas@gmail.com"; // емайл получателя данных из формы
 $tema = "Форма обратной связи на PHP"; // тема полученного емайла
 $message = "Ваше имя: ".$_POST['name']."<br>";//присвоить переменной значение, полученное из формы name=name
   $message .= "E-mail: ".$_POST['email']."<br>"; //полученное из формы name=email
